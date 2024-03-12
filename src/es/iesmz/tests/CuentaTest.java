@@ -17,4 +17,11 @@ class CuentaTest {
         assertFalse(c.compruebaIBAN("ES8200491500051234567892"));
     }
 
+    @Test
+    void testGeneralIBAN() {
+        Cuenta c = new Cuenta("ES6621000418401234567891", "Juan");
+        String iban = c.generalIBAN("0030","2053","09","1234567895");
+        assertEquals("ES7100302053091234567895", iban);
+    }
+
 }
