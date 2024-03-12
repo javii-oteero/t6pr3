@@ -13,8 +13,8 @@ public class Cuenta {
 
     public boolean compruebaIBAN(String iban) {
         boolean esValido = true;
-        if (iban.matches("ES\\d{32}")){
-            String cs = iban.substring(13) + "142800";
+        if (iban.matches("ES\\d{22}")){
+            String cs = iban.substring(4) + "142800";
             BigInteger num = new BigInteger(cs);
             BigInteger restoDivision = num.mod(new BigInteger("97"));
             BigInteger result = new BigInteger("98").subtract(restoDivision);
@@ -25,7 +25,7 @@ public class Cuenta {
             } else {
                 digito = "0" + digitoControl;
             }
-            esValido = digito.equals(iban.substring(1, 3));
+            esValido = digito.equals(iban.substring(2, 4));
         } else {
             esValido = false;
         }
