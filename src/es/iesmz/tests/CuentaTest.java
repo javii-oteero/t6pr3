@@ -19,9 +19,13 @@ class CuentaTest {
 
     @Test
     void testGeneralIBAN() {
-        Cuenta c = new Cuenta("ES6621000418401234567891", "Juan");
+        Cuenta c = new Cuenta("", "");
         String iban = c.generalIBAN("0030","2053","09","1234567895");
         assertEquals("ES7100302053091234567895", iban);
+        String iban2 = c.generalIBAN("0049","2352","08","2414205416");
+        assertEquals("ES1000492352082414205416", iban2);
+        String iban3 = c.generalIBAN("2085","2066","62","3456789011");
+        assertEquals("ES1720852066623456789011", iban3);
     }
 
 }

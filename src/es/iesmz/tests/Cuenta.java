@@ -17,7 +17,7 @@ public class Cuenta {
             String cs = iban.substring(4) + "142800";
             int digitoControl = calcularDigitoControl(cs);
             String digito;
-            if (digitoControl > 10){
+            if (digitoControl >= 10){
                 digito = String.valueOf(digitoControl);
             } else {
                 digito = "0" + digitoControl;
