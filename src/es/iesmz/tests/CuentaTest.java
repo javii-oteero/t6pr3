@@ -9,7 +9,12 @@ class CuentaTest {
     void testCompruebaIBAN() {
         Cuenta c = new Cuenta("ES6621000418401234567891", "Juan");
         assertTrue(c.compruebaIBAN("ES6621000418401234567891"));
-    }
+        assertTrue(c.compruebaIBAN("ES6000491500051234567892"));
+        assertTrue(c.compruebaIBAN("ES9420805801101234567891"));
 
+        assertFalse(c.compruebaIBAN("ES7600246912501234567891"));
+        assertFalse(c.compruebaIBAN("ES4721000418401234567891"));
+        assertFalse(c.compruebaIBAN("ES8200491500051234567892"));
+    }
 
 }
