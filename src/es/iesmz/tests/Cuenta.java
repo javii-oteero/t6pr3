@@ -33,6 +33,11 @@ public class Cuenta {
     }
 
     public String generalIBAN(String entidad, String oficina, String dc, String cuenta) {
-        return "";
+        String iban = String.format("ES%s%s%s%s", entidad, oficina, dc, cuenta);
+        if (compruebaIBAN(iban)) {
+            return iban;
+        } else {
+            return null;
+        }
     }
 }
