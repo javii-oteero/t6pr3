@@ -28,4 +28,14 @@ class CuentaTest {
         assertEquals("ES1720852066623456789011", iban3);
     }
 
+    @Test
+    void testGeneralIbanNull() {
+        Cuenta c = new Cuenta("", "");
+        assertNull(c.generalIBAN("2085","2066","62","3456AE9011"));
+        assertNull(c.generalIBAN("208","2066","62","3456789011"));
+        assertNull(c.generalIBAN("2080","20A6","62","3456789011"));
+        assertNull(c.generalIBAN("2080","2086","6","3456789011"));
+        assertNull(c.generalIBAN("2080","2086","63","345678911"));
+    }
+
 }

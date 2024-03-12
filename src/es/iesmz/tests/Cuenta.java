@@ -30,10 +30,15 @@ public class Cuenta {
     }
 
     private int calcularDigitoControl(String cs) {
-        BigInteger num = new BigInteger(cs);
-        BigInteger restoDivision = num.mod(new BigInteger("97"));
-        BigInteger result = new BigInteger("98").subtract(restoDivision);
-        return result.intValue();
+        try{
+            BigInteger num = new BigInteger(cs);
+            BigInteger restoDivision = num.mod(new BigInteger("97"));
+            BigInteger result = new BigInteger("98").subtract(restoDivision);
+            return result.intValue();
+        } catch (NumberFormatException e){
+            return -1;
+        }
+
     }
 
     public String generalIBAN(String entidad, String oficina, String dc, String cuenta) {
